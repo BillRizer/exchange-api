@@ -2,58 +2,62 @@
   "name": "exchange-api",
   "version": "1.0.0",
   "description": "simple exchange API",
-  "repository": "https://github.com/BillRizer/exchange-api",
+  "main": "index.js",
   "author": "BillRizer",
   "license": "MIT",
   "private": true,
-  "main": "index.js",
-  "type": "module",
-  "dependencies": {
-    "fastify": "^4.25.2",
-    "fastify-cors": "^6.0.3"
-  },
   "scripts": {
-    "build": "swc src -d dist",
-    "build-dev": "npm run build && NODE_ENV=development node --inspect dist/server.js",
-    "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
-    "start": "npm run build && NODE_ENV=production node dist/server.js",
-    "eslint:check": "eslint src/**/*.ts",
-    "eslint:fix": "eslint src/**/*.ts --fix",
-    "prettier:check": "prettier --check 'src/**/*.ts'",
-    "prettier:fix": "prettier --write 'src/**/*.ts'",
-    "prepare": "husky install",
-    "test": "jest"
+    "build": "tsc -p tsconfig.json",
+    "start": "node ./dist/index.js",
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' src/index.ts",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "pre-commit": "eslint ."
     }
+  },
+  "lint-staged":{
+    "**/*.{js,jsx,ts,tsx}":[
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
+  },
+  "keywords": [
+    "fastify"
+  ],
+  "dependencies": {
+    "@fastify/env": "^4.3.0",
+    "@types/conventional-commits-parser": "^3.0.6",
+    "fastify": "^3.15.1",
+    "fastify-env": "^2.1.1",
+    "fastify-plugin": "^3.0.0",
+    "mysql2": "^2.2.5",
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.32"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.8",
-    "@babel/preset-typescript": "^7.23.3",
-    "nodemon": "^3.0.3",
-    "prettier": "^3.2.4",
-    "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.3.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{ts,js,yml,yaml}": [
-      "yarn eslint:check",
-      "yarn eslint:fix",
-      "yarn prettier:check",
-      "yarn prettier:fix"
-    ],
-    "*.{js,jsx,ts,tsx,css,md}": "prettier --write ."
+    "@tsconfig/node14": "^1.0.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.4",
+    "@types/sinon": "^10.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "8.10.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^8.0.0",
+    "jest": "^27.0.3",
+    "lint-staged": "^15.2.0",
+    "nodemon": "^2.0.7",
+    "prettier": "2.8.8",
+    "sinon": "^11.1.1",
+    "ts-jest": "^27.0.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4"
   }
 }
