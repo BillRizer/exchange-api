@@ -1,0 +1,59 @@
+{
+  "name": "exchange-api",
+  "version": "1.0.0",
+  "description": "simple exchange API",
+  "repository": "https://github.com/BillRizer/exchange-api",
+  "author": "BillRizer",
+  "license": "MIT",
+  "private": true,
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "fastify": "^4.25.2",
+    "fastify-cors": "^6.0.3"
+  },
+  "scripts": {
+    "build": "swc src -d dist",
+    "build-dev": "npm run build && NODE_ENV=development node --inspect dist/server.js",
+    "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
+    "start": "npm run build && NODE_ENV=production node dist/server.js",
+    "eslint:check": "eslint src/**/*.ts",
+    "eslint:fix": "eslint src/**/*.ts --fix",
+    "prettier:check": "prettier --check 'src/**/*.ts'",
+    "prettier:fix": "prettier --write 'src/**/*.ts'",
+    "prepare": "husky install",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/preset-env": "^7.23.8",
+    "@babel/preset-typescript": "^7.23.3",
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.4",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,js,yml,yaml}": [
+      "yarn eslint:check",
+      "yarn eslint:fix",
+      "yarn prettier:check",
+      "yarn prettier:fix"
+    ],
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write ."
+  }
+}
