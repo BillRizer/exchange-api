@@ -20,8 +20,8 @@
       "pre-commit": "eslint ."
     }
   },
-  "lint-staged":{
-    "**/*.{js,jsx,ts,tsx}":[
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
       "npx prettier --write",
       "npx eslint --fix"
     ]
@@ -41,6 +41,8 @@
     "typeorm": "^0.2.32"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "@tsconfig/node14": "^1.0.0",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.4",
