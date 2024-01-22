@@ -3,27 +3,12 @@ import express from 'express'
 import { json } from 'body-parser'
 import { AppDataSource } from './data-source'
 import UserController from './application/controller/user.controller'
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  MaxLength,
-} from 'class-validator'
+
 import { validationMiddleware } from './infra/middleware/validate'
-
-export class userDto {
-  @IsString()
-  name: string
-
-  @IsEmail()
-  email: string
-
-  @MaxLength(4)
-  @IsNumber({}, { message: 'deve ser um numero' })
-  @IsNotEmpty()
-  balance: number
-}
+import AuthController from './application/controller/auth.controller'
+import { createUserDto } from './infra/dto/user/create-user.dto'
+import { loginDto } from './infra/dto/auth/login.dto'
+import ErrorMiddleware from './infra/middleware/error.middleware'
 
 const app = express()
 const port = 3000
@@ -39,8 +24,15 @@ AppDataSource.initialize()
 app.use(json())
 
 const userController = new UserController()
+const authController = new AuthController()
 
-app.post('/register', validationMiddleware(userDto), userController.register)
+app.post(
+  '/register',
+  validationMiddleware(createUserDto),
+  userController.register
+)
+app.post('/login', validationMiddleware(loginDto), authController.login)
+app.use(ErrorMiddleware)
 
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`)

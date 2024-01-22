@@ -5,6 +5,7 @@ import { AppDataSource } from '../data-source'
 
 export interface IUserRepository {
   saveUser: (user: User) => Promise<User>
+  findByEmail: (email: string) => Promise<User | null>
 }
 
 export class UserRepository implements IUserRepository {
@@ -16,5 +17,9 @@ export class UserRepository implements IUserRepository {
 
   saveUser = async (user: User): Promise<User> => {
     return this.ormRepository.save(user)
+  }
+
+  findByEmail = async (email: string): Promise<User | null> => {
+    return this.ormRepository.findOne({ where: { email } })
   }
 }

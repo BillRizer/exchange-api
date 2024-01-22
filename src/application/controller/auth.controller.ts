@@ -5,19 +5,22 @@ import {
   IUserRepository,
   UserRepository,
 } from '../../repository/user.repository'
+import LoginUsecase from '../use-cases/auth/login.use-case'
+import { loginDto } from '../../infra/dto/auth/login.dto'
 
-export default class UserController {
+export default class AuthController {
   private usersRepository: IUserRepository
 
   constructor() {
     this.usersRepository = new UserRepository()
   }
 
-  register = (req: Request, res: Response) => {
-    const userCase = new RegisterUsecase(this.usersRepository)
+  login = (req: Request, res: Response) => {
+    const userCase = new LoginUsecase(this.usersRepository)
+    const dto: loginDto = req.body
 
     userCase
-      .execute(new User(req.body))
+      .execute(dto.email, dto.password)
       .then((response) => {
         res.json(response)
       })
