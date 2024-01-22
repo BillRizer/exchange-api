@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  postgres:
+    image: "postgres:14.5"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: "change-me"
+      POSTGRES_PASSWORD: "change-me"
+      POSTGRES_DB: "exchange"
+    networks:
+      - exchange
+
+  # rabbitmq:
+  #   image: "rabbitmq:3.9.10-management-alpine"
+  #   container_name: rabbitmq
+  #   ports:
+  #     - 5672:5672
+  #     - 15672:15672
+  #   volumes:
+  #     - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+  #     - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+  #   networks:
+  #     - exchange
+
+networks:
+  exchange:
+    driver: bridge
