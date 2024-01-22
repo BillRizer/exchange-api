@@ -2,7 +2,7 @@ import 'reflect-metadata'
 import express from 'express'
 import { json } from 'body-parser'
 import { AppDataSource } from './data-source'
-import UserController from './controller/user.controller'
+import UserController from './application/controller/user.controller'
 
 const app = express()
 const port = 3000

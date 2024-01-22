@@ -1,5 +1,5 @@
-import User from '../../domain/user'
-import { IUserRepository } from '../../repos/user.repository'
+import User from '../../../domain/user'
+import { IUserRepository } from '../../../repository/user.repository'
 
 export default class RegisterUsecase {
   private repository: IUserRepository
