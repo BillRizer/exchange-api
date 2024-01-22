@@ -1,12 +1,10 @@
 import { Request, Response } from 'express'
-import User from '../../domain/user'
-import RegisterUsecase from '../use-cases/user/register.use-case'
 import {
   IUserRepository,
   UserRepository,
-} from '../../repository/user.repository'
+} from '../../infra/repository/user.repository'
 import LoginUsecase from '../use-cases/auth/login.use-case'
-import { loginDto } from '../../infra/dto/auth/login.dto'
+import { loginDto } from '../../domain/dto/auth/login.dto'
 
 export default class AuthController {
   private usersRepository: IUserRepository

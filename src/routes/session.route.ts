@@ -1,6 +1,6 @@
 import express from 'express'
 import { validationMiddleware } from '../infra/middleware/validate'
-import { loginDto } from '../infra/dto/auth/login.dto'
+import { loginDto } from '../domain/dto/auth/login.dto'
 import AuthController from '../application/controller/auth.controller'
 import authenticationMiddleware from '../infra/middleware/authentication'
 

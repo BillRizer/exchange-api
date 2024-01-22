@@ -4,17 +4,19 @@ import {
   IsNumber,
   IsString,
   MaxLength,
+  MinLength,
 } from 'class-validator'
 
 export class createUserDto {
   @IsString()
+  @IsNotEmpty()
   name: string
 
   @IsEmail()
+  @IsNotEmpty()
   email: string
 
-  @MaxLength(4)
-  @IsNumber({}, { message: 'deve ser um numero' })
+  @MinLength(6)
   @IsNotEmpty()
-  balance: number
+  password: string
 }

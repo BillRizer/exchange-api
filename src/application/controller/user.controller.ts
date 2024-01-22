@@ -4,7 +4,7 @@ import RegisterUsecase from '../use-cases/user/register.use-case'
 import {
   IUserRepository,
   UserRepository,
-} from '../../repository/user.repository'
+} from '../../infra/repository/user.repository'
 
 export default class UserController {
   private usersRepository: IUserRepository

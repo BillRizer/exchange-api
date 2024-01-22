@@ -3,7 +3,7 @@ interface UserProps {
   name: string
   email: string
   password: string
-  balance: number
+  balance?: number
 }
 
 export default class User {
@@ -18,6 +18,6 @@ export default class User {
     this.name = props.name
     this.email = props.email
     this.password = props.password
-    this.balance = props.balance
+    this.balance = props.balance ?? 0
   }
 }
