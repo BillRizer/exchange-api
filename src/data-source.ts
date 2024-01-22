@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
   database: 'exchange',
   synchronize: false,
   logging: false,
-  entities: ['src/database/typeorm/entity/*.entity.ts'],
-  migrations: ['src/database/typeorm/migration/*.js'],
+  entities: ['src/infra/database/typeorm/entity/*.entity.ts'],
+  migrations: ['src/infra/database/typeorm/migration/*.js'],
   subscribers: [],
 })
