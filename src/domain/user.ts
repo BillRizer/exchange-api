@@ -1,8 +1,8 @@
 interface UserProps {
-  id?: number
+  id: number
   name: string
   email: string
-  password?: string
+  password: string
   balance: number
 }
 
@@ -10,7 +10,7 @@ export default class User {
   id?: number
   name: string
   email: string
-  password?: string
+  password: string
   balance: number
 
   constructor(props: UserProps) {
