@@ -1,7 +1,7 @@
-import { ICacheClient } from './redis-client'
+import { IBaseCacheClient } from './base-cache.interface'
 
 export class Cache {
-  constructor(private cacheProvider: ICacheClient) {}
+  constructor(private cacheProvider: IBaseCacheClient) {}
 
   async getDataFromCache<T>(key: string): Promise<T | undefined> {
     const data = await this.cacheProvider.get(key)

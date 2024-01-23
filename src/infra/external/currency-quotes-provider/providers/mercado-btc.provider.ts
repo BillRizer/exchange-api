@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { TCurrency } from '../../../../domain/types/currency-quote.type'
-import { ITicker } from '../resources.interface'
+import { TCurrency } from '../../../../domain/types/currency-quote-currency.type'
+import { ITicker } from '../../../../domain/interfaces/currency-quote-ticker.interface'
 import { IBaseProvider } from './base.provider'
 
 export class MercadoBTCProvider implements IBaseProvider {

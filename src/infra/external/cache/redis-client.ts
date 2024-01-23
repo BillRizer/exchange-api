@@ -1,21 +1,18 @@
 import { createClient, RedisClientType } from 'redis'
+import { IBaseCacheClient } from './base-cache.interface'
+import { config } from '../../../config/config'
 
-export interface ICacheClient {
-  set(key: string, value: string, ttl?: number): Promise<string | void>
-  get(key: string): Promise<string | null>
-  quit(): void
-}
-class RedisClient implements ICacheClient {
+class RedisClient implements IBaseCacheClient {
   private client: RedisClientType
 
   constructor() {
     this.client = createClient({
-      url: 'redis://:eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81@172.19.0.2:6379',
+      url: config.REDIS_URL,
     })
     this.client.connect()
 
     this.client.on('error', (err) => {
-      console.error('Erro de conexão com o Redis:', err)
+      console.error('redis error:', err)
     })
   }
 

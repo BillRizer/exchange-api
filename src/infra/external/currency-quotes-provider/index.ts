@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { MercadoBTCProvider } from './providers/mercado-btc.provider'
-import { TCurrency } from '../../../domain/types/currency-quote.type'
-import { ITicker } from './resources.interface'
+import { TCurrency } from '../../../domain/types/currency-quote-currency.type'
+import { ITicker } from '../../../domain/interfaces/currency-quote-ticker.interface'
 import CurrencyQuote from '../../../domain/currency-quote'
 
 export class CurrencyQuotesProvider {
