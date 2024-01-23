@@ -1,6 +1,7 @@
 import { createClient, RedisClientType } from 'redis'
 import { IBaseCacheClient } from './base-cache.interface'
 import { config } from '@/config/config'
+import { logger } from '@/infra/log'
 
 class RedisClient implements IBaseCacheClient {
   private client: RedisClientType
@@ -12,7 +13,7 @@ class RedisClient implements IBaseCacheClient {
     this.client.connect()
 
     this.client.on('error', (err) => {
-      console.error('redis error:', err)
+      logger.logError('REDIS error', err)
     })
   }
 

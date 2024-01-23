@@ -7,6 +7,7 @@ import {
   IResponsePayload,
   SuccessResponse,
 } from '../response-payload'
+import { logger } from '@/infra/log'
 
 export default class GetCurrencyQuoteUsecase {
   private currencyQuotesProvider: CurrencyQuotesProvider
@@ -26,9 +27,14 @@ export default class GetCurrencyQuoteUsecase {
     let currencyQuote = await this.getCurrencyQuoteFromCache(currency)
 
     if (!currencyQuote) {
-      console.log('nao existe, buscando')
+      logger.logDebug(
+        `Not found cache for currency ${currency}, Will try fetch from external provider`
+      )
       const fromProvider = await this.getCurrencyQuoteFromProvider(currency)
       if (!fromProvider) {
+        logger.logError(
+          `Error when searching currency ${currency} in external provider`
+        )
         return new ErrorResponse({
           errors: 'Error when searching for currency quote',
         })
@@ -36,7 +42,7 @@ export default class GetCurrencyQuoteUsecase {
       await this.cacheClient.setCacheData(currency, fromProvider, CACHE_TTL)
       currencyQuote = fromProvider
 
-      console.log('nao existe, atualizando')
+      logger.logDebug(`Currency ${currency} was updated in cache`)
     }
 
     return new SuccessResponse({ data: currencyQuote })

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import GetCurrencyQuoteUsecase from '@UseCases/currency-quote/get-currency-quote.use-case'
+import { EmailQueueWrapper } from '@/infra/external/queue/email'
 
 export default class CurrencyQuoteController {
   private useCase: GetCurrencyQuoteUsecase
@@ -8,7 +9,7 @@ export default class CurrencyQuoteController {
     this.useCase = usecase
   }
 
-  currencyQuote = (req: Request, res: Response) => {
+  currencyQuote = async (req: Request, res: Response) => {
     this.useCase
       .execute('btc')
       .then((response) => {

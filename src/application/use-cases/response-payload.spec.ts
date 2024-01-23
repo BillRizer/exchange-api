@@ -1,5 +1,3 @@
-// response.test.ts
-
 import {
   BaseResponse,
   ErrorResponse,

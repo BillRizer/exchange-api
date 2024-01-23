@@ -7,6 +7,11 @@ import { AppDataSource } from '@/infra/database/typeorm/data-source'
 import ErrorMiddleware from '@/infra/middleware/error.middleware'
 import { routes } from '@/routes'
 import { config } from '@/config/config'
+import {
+  EmailQueueWrapper,
+  defaultEmailQueueConfig,
+} from './infra/external/queue/email'
+import { logger } from './infra/log'
 
 dotenv.config()
 
@@ -14,10 +19,10 @@ export const app = express()
 
 AppDataSource.initialize()
   .then(() => {
-    console.log('Data Source has been initialized!')
+    logger.logDebug('Data Source has been initialized!')
   })
-  .catch((err: any) => {
-    console.error('Error during Data Source initialization:', err)
+  .catch((error) => {
+    logger.logError('Error during Data Source initialization:', error)
   })
 
 app.use(json())
@@ -27,5 +32,17 @@ app.use('/', routes)
 app.use(ErrorMiddleware)
 
 app.listen(config.PORT, () => {
-  console.log(`Server started at http://localhost:${config.PORT}`)
+  logger.logDebug(`Server started at http://localhost:${config.PORT}`)
 })
+
+const emailQueue = new EmailQueueWrapper(defaultEmailQueueConfig)
+;(async () => {
+  await emailQueue.initialize()
+
+  await emailQueue.consume()
+
+  process.on('SIGINT', async () => {
+    await emailQueue.closeConnection()
+    process.exit(0)
+  })
+})()

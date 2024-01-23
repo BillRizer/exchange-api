@@ -36,9 +36,7 @@ describe('GetCurrencyQuoteUsecase', () => {
   })
 
   it('should retrieve currency quote from cache successfully', async () => {
-    const mockCurrencyQuote = {
-      /* mocked currency quote object */
-    }
+    const mockCurrencyQuote = {}
     mockCache.getDataFromCache.mockResolvedValue(mockCurrencyQuote)
 
     const result = await getCurrencyQuoteUsecase.execute('btc')
@@ -50,9 +48,7 @@ describe('GetCurrencyQuoteUsecase', () => {
   })
 
   it('should retrieve currency quote from provider and update cache successfully', async () => {
-    const mockCurrencyQuote = {
-      /* mocked currency quote object */
-    }
+    const mockCurrencyQuote = {}
     mockProvider.fetchTicker.mockResolvedValue(mockCurrencyQuote)
     mockCache.getDataFromCache.mockResolvedValue(undefined)
 

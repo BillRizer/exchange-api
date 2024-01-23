@@ -1,6 +1,7 @@
 import { plainToClass } from 'class-transformer'
 import { validate, ValidationError } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
+import { logger } from '../log'
 
 export const validationPipe = async <T>(
   schema: new () => T,
@@ -44,8 +45,7 @@ export const validationMiddleware =
         })
       }
     } catch (error) {
-      // Handle unexpected errors
-      console.error(error)
+      logger.logError('Middleware validate', error)
       res.status(500).json({
         success: false,
         errors: ['Internal Server Error'],

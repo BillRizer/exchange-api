@@ -6,7 +6,6 @@ import { IResponsePayload } from '@UseCases/response-payload'
 import CurrencyQuote from '@/domain/currency-quote'
 import { Cache } from '@/infra/external/cache'
 
-// Mocking the GetCurrencyQuoteUsecase for testing purposes
 class MockGetCurrencyQuoteUsecase implements GetCurrencyQuoteUsecase {
   execute: (currency: TCurrency) => Promise<IResponsePayload>
   getCurrencyQuoteFromCache: (

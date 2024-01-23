@@ -6,7 +6,6 @@ import User from '@/domain/user'
 import { SuccessResponse } from '../use-cases/response-payload'
 import { loginDto } from '@/domain/dto/auth/login.dto'
 
-// Mocking the UserRepository for testing purposes
 class MockUserRepository implements IUserRepository {
   findByEmail: (email: string) => Promise<User | null>
   saveUser: (user: User) => Promise<User>
