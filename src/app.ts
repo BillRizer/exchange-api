@@ -3,10 +3,10 @@ import express from 'express'
 import dotenv from 'dotenv'
 import 'express-async-errors'
 import { json } from 'body-parser'
-import { AppDataSource } from './data-source'
-import ErrorMiddleware from './infra/middleware/error.middleware'
-import { routes } from './routes'
-import { config } from './config/config'
+import { AppDataSource } from '@/infra/database/typeorm/data-source'
+import ErrorMiddleware from '@/infra/middleware/error.middleware'
+import { routes } from '@/routes'
+import { config } from '@/config/config'
 
 dotenv.config()
 

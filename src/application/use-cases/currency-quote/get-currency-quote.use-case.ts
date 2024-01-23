@@ -1,7 +1,7 @@
-import CurrencyQuote from '../../../domain/currency-quote'
-import { TCurrency } from '../../../domain/types/currency-quote-currency.type'
-import { Cache } from '../../../infra/external/cache'
-import { CurrencyQuotesProvider } from '../../../infra/external/currency-quotes-provider'
+import CurrencyQuote from '@/domain/currency-quote'
+import { TCurrency } from '@/domain/types/currency-quote-currency.type'
+import { Cache } from '@/infra/external/cache'
+import { CurrencyQuotesProvider } from '@/infra/external/currency-quotes-provider'
 import {
   ErrorResponse,
   IResponsePayload,

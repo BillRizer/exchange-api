@@ -1,6 +1,6 @@
 import { createClient, RedisClientType } from 'redis'
 import { IBaseCacheClient } from './base-cache.interface'
-import { config } from '../../../config/config'
+import { config } from '@/config/config'
 
 class RedisClient implements IBaseCacheClient {
   private client: RedisClientType

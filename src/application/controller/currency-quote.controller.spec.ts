@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import CurrencyQuoteController from './currency-quote.controller'
-import GetCurrencyQuoteUsecase from '../use-cases/currency-quote/get-currency-quote.use-case'
-import { TCurrency } from '../../domain/types/currency-quote-currency.type'
-import { IResponsePayload } from '../use-cases/response-payload'
-import CurrencyQuote from '../../domain/currency-quote'
-import { Cache } from '../../infra/external/cache'
+import GetCurrencyQuoteUsecase from '@UseCases/currency-quote/get-currency-quote.use-case'
+import { TCurrency } from '@/domain/types/currency-quote-currency.type'
+import { IResponsePayload } from '@UseCases/response-payload'
+import CurrencyQuote from '@/domain/currency-quote'
+import { Cache } from '@/infra/external/cache'
 
 // Mocking the GetCurrencyQuoteUsecase for testing purposes
 class MockGetCurrencyQuoteUsecase implements GetCurrencyQuoteUsecase {

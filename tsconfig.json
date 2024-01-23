@@ -21,7 +21,13 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "lib": ["es6", "dom"],
-    "allowJs": true
+    "allowJs": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"],
+      "@UseCases/*": ["application/use-cases/*"]
+    }
   },
   "include": ["src/**/*.ts", ".eslintrc"],
   "exclude": ["node_modules"]

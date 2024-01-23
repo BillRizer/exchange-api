@@ -2,9 +2,9 @@ import { Request, Response } from 'express'
 import {
   IUserRepository,
   UserRepository,
-} from '../../infra/repository/user.repository'
-import LoginUsecase from '../use-cases/auth/login.use-case'
-import { loginDto } from '../../domain/dto/auth/login.dto'
+} from '@/infra/repository/user.repository'
+import LoginUsecase from '@/application/use-cases/auth/login.use-case'
+import { loginDto } from '@/domain/dto/auth/login.dto'
 
 export default class AuthController {
   private useCase: LoginUsecase

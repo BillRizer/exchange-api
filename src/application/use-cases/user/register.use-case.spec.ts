@@ -3,7 +3,7 @@
 import RegisterUsecase from './register.use-case'
 import User from '../../../domain/user'
 import { IResponsePayload, SuccessResponse } from '../response-payload'
-import { IUserRepository } from '../../../repository/user.repository'
+import { IUserRepository } from '@/infra/repository/user.repository'
 
 // Mock para IUserRepository
 const userRepositoryMock: jest.Mocked<IUserRepository> = {

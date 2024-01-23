@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
 import AuthController from './auth.controller'
 import LoginUsecase from '../use-cases/auth/login.use-case'
-import { IUserRepository } from '../../infra/repository/user.repository'
-import User from '../../domain/user'
+import { IUserRepository } from '@/infra/repository/user.repository'
+import User from '@/domain/user'
 import { SuccessResponse } from '../use-cases/response-payload'
-import { loginDto } from '../../domain/dto/auth/login.dto'
+import { loginDto } from '@/domain/dto/auth/login.dto'
 
 // Mocking the UserRepository for testing purposes
 class MockUserRepository implements IUserRepository {

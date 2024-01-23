@@ -9,7 +9,7 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "start": "node -r dotenv/config  ./dist/app.js",
-    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' --files -r dotenv/config  src/app.ts ",
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' --files -r dotenv/config -r tsconfig-paths/register src/app.ts ",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:cov": "jest --coverage",
@@ -56,6 +56,7 @@
     "pg": "^8.11.3",
     "redis": "^4.6.12",
     "reflect-metadata": "^0.1.14",
+    "tsconfig-paths": "^4.2.0",
     "typeorm": "^0.3.19"
   },
   "devDependencies": {

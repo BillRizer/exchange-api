@@ -1,10 +1,10 @@
 import { Request, Response } from 'express'
-import User from '../../domain/user'
-import RegisterUsecase from '../use-cases/user/register.use-case'
+import User from '@/domain/user'
+import RegisterUsecase from '@/application/use-cases/user/register.use-case'
 import {
   IUserRepository,
   UserRepository,
-} from '../../infra/repository/user.repository'
+} from '@/infra/repository/user.repository'
 
 export default class UserController {
   private usersRepository: IUserRepository

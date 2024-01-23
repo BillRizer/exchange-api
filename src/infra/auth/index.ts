@@ -1,5 +1,6 @@
 import { JwtPayload, sign, verify } from 'jsonwebtoken'
-import User from '../../domain/user'
+import User from '@/domain/user'
+import { config } from '../../config/config'
 
 export interface ITokenPayload {
   iat: number
@@ -12,8 +13,8 @@ export interface IAuth {
 
 export class Auth implements IAuth {
   public generateJWTToken(user: Partial<User>): string {
-    const expiresIn = '1d'
-    const secret = 'secret'
+    const expiresIn = config.JWT_EXPIRES_IN
+    const secret = config.JWT_SECRET
 
     return sign(
       {
@@ -25,9 +26,7 @@ export class Auth implements IAuth {
   }
 
   public verifyJWTToken(token: string): ITokenPayload {
-    const secret = 'secret'
-
-    const decoded = verify(token, secret)
+    const decoded = verify(token, config.JWT_SECRET)
     const { exp, iat, id } = decoded as ITokenPayload
     return <ITokenPayload>{ exp, iat, id }
   }

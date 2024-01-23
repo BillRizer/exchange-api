@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import GetCurrencyQuoteUsecase from '../use-cases/currency-quote/get-currency-quote.use-case'
+import GetCurrencyQuoteUsecase from '@UseCases/currency-quote/get-currency-quote.use-case'
 
 export default class CurrencyQuoteController {
   private useCase: GetCurrencyQuoteUsecase

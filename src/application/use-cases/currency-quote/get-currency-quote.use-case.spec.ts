@@ -1,7 +1,7 @@
 import GetCurrencyQuoteUsecase from './get-currency-quote.use-case'
 import { Cache } from '../../../infra/external/cache'
 import { CurrencyQuotesProvider } from '../../../infra/external/currency-quotes-provider'
-import { ErrorResponse, SuccessResponse } from '../response-payload'
+import { SuccessResponse } from '../response-payload'
 
 jest.mock('../../../infra/external/cache', () => {
   return {

@@ -1,7 +1,8 @@
+import { config } from '../../config/config'
 import { compareSync, genSaltSync, hashSync } from 'bcrypt'
 
 export const generateSalt = (): string => {
-  return genSaltSync(10)
+  return genSaltSync(config.CRYPTO_SALT)
 }
 
 export function compare(data: string | Buffer, encrypted: string): boolean {

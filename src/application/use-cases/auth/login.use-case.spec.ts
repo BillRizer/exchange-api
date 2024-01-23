@@ -1,6 +1,6 @@
 import User from '../../../domain/user'
 import { compare } from '../../../infra/helpers/crypto'
-import { IUserRepository } from '../../../repository/user.repository'
+import { IUserRepository } from '@/infra/repository/user.repository'
 import {
   ErrorResponse,
   IResponsePayload,
