@@ -12,6 +12,16 @@ services:
     networks:
       - exchange
 
+  cache:
+      image: redis:6.2-alpine
+      restart: always
+      ports:
+        - '6379:6379'
+      command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      volumes: 
+        - cache:/data
+
+      
   # rabbitmq:
   #   image: "rabbitmq:3.9.10-management-alpine"
   #   container_name: rabbitmq
@@ -27,3 +37,7 @@ services:
 networks:
   exchange:
     driver: bridge
+    
+volumes:
+  cache:
+    driver: local

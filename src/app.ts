@@ -6,7 +6,7 @@ import { AppDataSource } from './data-source'
 import ErrorMiddleware from './infra/middleware/error.middleware'
 import { routes } from './routes'
 
-const app = express()
+export const app = express()
 const port = 3000
 
 AppDataSource.initialize()

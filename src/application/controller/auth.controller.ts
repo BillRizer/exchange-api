@@ -7,17 +7,16 @@ import LoginUsecase from '../use-cases/auth/login.use-case'
 import { loginDto } from '../../domain/dto/auth/login.dto'
 
 export default class AuthController {
-  private usersRepository: IUserRepository
+  private useCase: LoginUsecase
 
-  constructor() {
-    this.usersRepository = new UserRepository()
+  constructor(usersRepository: IUserRepository, usecase: LoginUsecase) {
+    this.useCase = usecase
   }
 
   login = (req: Request, res: Response) => {
-    const userCase = new LoginUsecase(this.usersRepository)
     const dto: loginDto = req.body
 
-    userCase
+    this.useCase
       .execute(dto.email, dto.password)
       .then((response) => {
         res.json(response)
