@@ -38,6 +38,9 @@ mv .env.sample .env
 docker-compose up --build -d
 
 ```
+Agora verifique no docker, a API esta na porta 3000 (possivelmente http://0.0.0.0:3000 funcionara)
+
+*Ainda não implementei https porque não houve tempo*
 
 
 ## Como usar
