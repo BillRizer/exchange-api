@@ -19,6 +19,10 @@ export default class AuthController {
     this.useCase
       .execute(dto.email, dto.password)
       .then((response) => {
+        if (!response.success) {
+          res.status(401).json(response).send()
+          return
+        }
         res.json(response)
       })
       .catch((err) => {

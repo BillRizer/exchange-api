@@ -9,7 +9,7 @@ class TestSchema {
 }
 
 describe('Validation Middleware', () => {
-  const mockRequest = (body) => ({
+  const mockRequest = (body: any) => ({
     body,
     params: {},
   })
@@ -26,8 +26,8 @@ describe('Validation Middleware', () => {
   })
 
   test('should pass validation for a valid request', async () => {
-    const req = mockRequest({ username: 'validUsername' })
-    const res = mockResponse()
+    const req: any = mockRequest({ username: 'validUsername' })
+    const res: any = mockResponse()
 
     const middleware = validationMiddleware(TestSchema)
     await middleware(req, res, mockNext)

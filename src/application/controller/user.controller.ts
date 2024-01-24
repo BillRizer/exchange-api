@@ -19,6 +19,10 @@ export default class UserController {
     userCase
       .execute(new User(req.body))
       .then((response) => {
+        if (!response.success) {
+          res.status(400).json(response).send()
+          return
+        }
         res.json(response)
       })
       .catch((err) => {

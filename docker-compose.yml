@@ -1,6 +1,18 @@
 version: '3'
 services:
 
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node-app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    networks:
+      - exchange
+
   postgres:
     image: "postgres:14.5"
     ports:
@@ -20,8 +32,9 @@ services:
       command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
       volumes: 
         - cache:/data
+      networks:
+      - exchange
 
-      
   rabbitmq:
     image: "rabbitmq:3.9.10-management-alpine"
     container_name: rabbitmq

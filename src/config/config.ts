@@ -1,7 +1,13 @@
 import { envSchema } from 'env-schema'
 
 interface AppConfig {
+  HOSTNAME: string
   PORT: number
+  PG_DB: string
+  PG_HOST: string
+  PG_PORT: number
+  PG_USER: string
+  PG_PASS: string
   REDIS_URL: string
   JWT_SECRET: string
   JWT_EXPIRES_IN: string
@@ -17,7 +23,13 @@ interface AppConfig {
 export const schema = {
   type: 'object',
   required: [
+    'HOSTNAME',
     'PORT',
+    'PG_DB',
+    'PG_HOST',
+    'PG_PORT',
+    'PG_USER',
+    'PG_PASS',
     'REDIS_URL',
     'JWT_SECRET',
     'JWT_EXPIRES_IN',
@@ -30,8 +42,26 @@ export const schema = {
     'MAILTRAP_FROM',
   ],
   properties: {
+    HOSTNAME: {
+      type: 'string',
+    },
     PORT: {
       type: 'number',
+    },
+    PG_DB: {
+      type: 'string',
+    },
+    PG_HOST: {
+      type: 'string',
+    },
+    PG_PORT: {
+      type: 'number',
+    },
+    PG_USER: {
+      type: 'string',
+    },
+    PG_PASS: {
+      type: 'string',
     },
     REDIS_URL: {
       type: 'string',

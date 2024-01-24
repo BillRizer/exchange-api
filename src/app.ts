@@ -31,8 +31,8 @@ app.use('/', routes)
 
 app.use(ErrorMiddleware)
 
-app.listen(config.PORT, () => {
-  logger.logDebug(`Server started at http://localhost:${config.PORT}`)
+app.listen(config.PORT, config.HOSTNAME, () => {
+  logger.logDebug(`Server started at http://${config.HOSTNAME}:${config.PORT}`)
 })
 
 const emailQueue = new EmailQueueWrapper(defaultEmailQueueConfig)

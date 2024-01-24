@@ -1,26 +1,15 @@
-FROM node:20.11-slim as builder
+FROM node:20.5.0-slim
 
-RUN apt-get update
-RUN apt-get install -y curl bash git
+WORKDIR /app 
 
-COPY package*.json ./
+COPY package.json /app 
 
-RUN npm install --production
-RUN npm ci --only=production
+COPY yarn.lock /app
 
-FROM node:20.11-slim
+RUN yarn install 
 
-WORKDIR /usr/src/app
+COPY . /app 
 
-COPY --from=builder node_modules node_modules
+CMD yarn migration:run && yarn dev 
 
-ENV NODE_ENV=production
-
-COPY . .
-
-RUN npm install typescript -g
-RUN npm run build
-
-CMD ["npm", "start"]
-
-EXPOSE 8080
+EXPOSE 3000

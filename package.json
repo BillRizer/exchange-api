@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
-    "start": "node -r dotenv/config  ./dist/app.js",
+    "start": "node -r dotenv/config  -r tsconfig-paths/register  ./dist/app.js",
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' --files -r dotenv/config -r tsconfig-paths/register src/app.ts ",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -18,8 +18,8 @@
     "prepare": "husky install",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "migration:create": "yarn typeorm migration:create ",
-    "migration:generate": "yarn typeorm migration:generate -d src/data-source.ts -o src/database/typeorm/migration",
-    "migration:run": "yarn typeorm migration:run -- -d src/data-source.ts"
+    "migration:generate": "yarn typeorm migration:generate -d src/infra/database/typeorm/data-source.ts -o src/infra/database/typeorm/migration",
+    "migration:run": "yarn typeorm migration:run -d src/infra/database/typeorm/data-source.ts"
   },
   "husky": {
     "hooks": {
