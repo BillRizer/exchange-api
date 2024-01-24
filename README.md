@@ -16,12 +16,16 @@
 - PostgreSQL
 - Jest
 - Typeorm
-- Winston - Logs
+- Logs - Winston
 - Migrations - Typeorm
 - Validação usando DTOs
 - Cache - Redis
 - Filas - RabbitMQ
 - Docker compose
+
+A nivel de Arquitetura e Design de codigo tentei ser o mais simplista e claro possivel, Alguns detalhes como falta de algumas contrato entre classes foi devido a curto prazo. Utilizei **SOLID**, Factory e singleton (caracteristica que os modulos nodejs tem por padrão)
+
+Estava começando a implementar os *varios tipos de emails* usando o design **Template Method**, é um padrão comportamental que define a estrutura do algoritmo, permite que as subclasses implementem etapas especificas do algoritmo.
 
 ## testes
 
