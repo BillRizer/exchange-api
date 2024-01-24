@@ -28,7 +28,15 @@ A nivel de Arquitetura e Design de codigo tentei ser o mais simplista e claro po
 Estava começando a implementar os *varios tipos de emails* usando o design **Template Method**, é um padrão comportamental que define a estrutura do algoritmo, permite que as subclasses implementem etapas especificas do algoritmo.
 
 ## testes
+![image](https://github.com/BillRizer/exchange-api/assets/5104527/57cf3bf0-5158-4f7f-9e36-792ae95a2f91)
 
+Cobertura geral de testes unitarios:
+- 52.02% Statements 167/321
+- 52.63% Branches 30/57
+- 50% Functions 45/90
+- 51.91% Lines 163/314
+
+Testes de integração e e2e ainda nao foram feitos ( este repositorio contem testes e como costumo contruí-los https://github.com/BillRizer/auction-api/tree/master/src)
 
 ## Como executar
 Para ver os emails (fake) crie uma conta no https://mailtrap.io/
