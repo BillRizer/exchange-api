@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { createDepositDto } from '@/domain/dto/deposit/create-deposit'
+import { createDepositDto } from '@/domain/dto/deposit/create-deposit.dto'
 import { EmailQueueWrapper } from '@/infra/external/queue/email'
 
 export default class DepositController {

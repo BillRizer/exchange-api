@@ -1,7 +1,7 @@
 import { MercadoBTCProvider } from './providers/mercado-btc.provider'
 import { TCurrency } from '@/domain/types/currency-quote-currency.type'
 import CurrencyQuote from '@/domain/currency-quote'
-import { logger } from '@/infra/log'
+import { logger } from '@/infra/logger'
 
 export class CurrencyQuotesProvider {
   async fetchTicker(currency: TCurrency): Promise<CurrencyQuote | void> {

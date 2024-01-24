@@ -7,6 +7,9 @@ export default {
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
     './src/**/*.{ts,tsx,js,jsx}',
+    '!./src/infra/database/typeorm/migration/*',
+    '!./src/domain/dto/*',
+    '!./src/routes/*',
     '!**/node_modules/**',
     '!**/dist/**',
   ],

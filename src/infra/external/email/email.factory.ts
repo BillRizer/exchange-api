@@ -1,4 +1,4 @@
-import { logger } from '@/infra/log'
+import { logger } from '../../../infra/logger'
 
 export interface IEmail {
   to: string

@@ -1,7 +1,7 @@
 import { createClient, RedisClientType } from 'redis'
 import { IBaseCacheClient } from './base-cache.interface'
 import { config } from '@/config/config'
-import { logger } from '@/infra/log'
+import { logger } from '@/infra/logger'
 
 class RedisClient implements IBaseCacheClient {
   private client: RedisClientType

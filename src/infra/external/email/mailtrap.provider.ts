@@ -1,9 +1,9 @@
-import { config } from '@/config/config'
+import { config } from '../../../config/config'
 import { IEmailProvider } from './base-emai.provider'
 import nodemailer from 'nodemailer'
-import { logger } from '@/infra/log'
+import { logger } from '../../../infra/logger'
 
-interface IMailtrapConfig {
+export interface IMailtrapConfig {
   username: string
   password: string
 }

@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { Auth } from '@/infra/auth'
+import { Auth } from '../../infra/auth'
 
 export default function authenticationMiddleware(
   req: Request,

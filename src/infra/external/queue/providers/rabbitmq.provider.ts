@@ -1,4 +1,4 @@
-import { logger } from '@/infra/log'
+import { logger } from '@/infra/logger'
 import amqp, { Connection, Options, Channel } from 'amqplib'
 
 export interface IRabbitMQConnection {

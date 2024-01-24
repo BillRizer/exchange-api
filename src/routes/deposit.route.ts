@@ -5,7 +5,7 @@ import {
 } from '@/infra/external/queue/email'
 import DepositController from '@/application/controller/deposit.controller'
 import { validationMiddleware } from '@/infra/middleware/validate'
-import { createDepositDto } from '@/domain/dto/deposit/create-deposit'
+import { createDepositDto } from '@/domain/dto/deposit/create-deposit.dto'
 
 export const depositRoutes = express.Router()
 

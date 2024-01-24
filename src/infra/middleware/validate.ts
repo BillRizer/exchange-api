@@ -1,7 +1,7 @@
 import { plainToClass } from 'class-transformer'
 import { validate, ValidationError } from 'class-validator'
 import { Request, Response, NextFunction } from 'express'
-import { logger } from '../log'
+import { logger } from '../logger'
 
 export const validationPipe = async <T>(
   schema: new () => T,

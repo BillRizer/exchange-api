@@ -1,4 +1,5 @@
 import CurrencyQuote from '@/domain/currency-quote'
+import { logger } from '../../../infra/logger'
 import { TCurrency } from '@/domain/types/currency-quote-currency.type'
 import { Cache } from '@/infra/external/cache'
 import { CurrencyQuotesProvider } from '@/infra/external/currency-quotes-provider'
@@ -7,7 +8,6 @@ import {
   IResponsePayload,
   SuccessResponse,
 } from '../response-payload'
-import { logger } from '@/infra/log'
 
 export default class GetCurrencyQuoteUsecase {
   private currencyQuotesProvider: CurrencyQuotesProvider

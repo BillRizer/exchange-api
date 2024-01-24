@@ -11,7 +11,7 @@ import {
   EmailQueueWrapper,
   defaultEmailQueueConfig,
 } from './infra/external/queue/email'
-import { logger } from './infra/log'
+import { logger } from './infra/logger'
 
 dotenv.config()
 
