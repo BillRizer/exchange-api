@@ -27,6 +27,18 @@
 
 
 ## Como executar
+Para ver os emails (fake) crie uma conta no https://mailtrap.io/
+e adicione user e password no .env
+![image](https://github.com/BillRizer/exchange-api/assets/5104527/9ae30eed-e7bc-49d7-bf5d-6e82696370f2)
+
+```
+# Renomeie o arquivo .env.sample para .env
+mv .env.sample .env
+
+docker-compose up --build -d
+
+```
+
 
 ## Como usar
 
