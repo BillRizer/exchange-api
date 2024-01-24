@@ -5,7 +5,7 @@
 
 *A funcionalidade de depósito não persiste na base de dados, apenas dispara um  evento de e-mail para o cliente.*
 
-- Ao consultar o valor do cripto no mercado bitcoin é feito um cache de 15 minutos e é renovado após o cache expirar, outra estratégia para resolver a alta demanda de requisições no endpoint.
+- Ao consultar o valor do cripto no mercado bitcoin é feito um cache de 15 minutos utilizando redis, é renovado após o cache expirar, outra estratégia para resolver a alta demanda de requisições no endpoint.
 
 
 
