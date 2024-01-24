@@ -72,5 +72,10 @@ curl --request POST \
 }'
 ```
 
+![image](https://github.com/BillRizer/exchange-api/assets/5104527/f305a3d9-29c4-48f1-a0a8-d041c193b5e5)
+
+![image](https://github.com/BillRizer/exchange-api/assets/5104527/309d78f0-c305-4676-82c6-c17268031bde)
+
+![image](https://github.com/BillRizer/exchange-api/assets/5104527/173d736d-0234-4257-8a77-6ab71adad66e)
 
 
